@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+
+ 
+body{
+background-color: #191d28;
+color: white !important;
+font-family: 'Roboto Condensed', sans-serif;
+ 
+ 
+
+}
+
+
+.filter-menu{
+
+display: flex;
+justify-content:space-between;
+margin-top: 50px;
+margin-bottom: 50px;
+}
+
+.filter-menu .logo-text h1{
+
+}
+.filter-menu .logo-text p{
+
+     
+     
+}
+.filter-menu .filter-dropdown button{
+    background-color: #2e3241;
+    border: none;
+    margin: 0 10px;
+    border-radius: 10px;
+    padding: 8px 13px;
+}
+
+.filter-menu .connect-switch .outer-circle{
+color:#3dc6c1;background-color: #3dc6c1;border-radius: 50%;padding: 3px;
+}
+
+.filter-menu .connect-switch .inner-circle{
+    background-color: #191d28;border-radius: 50%;padding: 5px;
+}
+ .filter-menu .connect-switch .connect-button{
+     height: fit-content;
+     margin: 0 5px;
+ }
+.filter-menu .connect-switch .connect-button .btn{
+    
+    background-color: #3dc6c1;
+    color: white;
+    
+   
+}
+.filter-menu .connect-switch .form-check .form-switch input:checked{
+color: #3dc6c1  ;
+background-color: #3dc6c1;
+
+}
+ 
+ 
+.stats-content table { 
+    border-collapse: separate; 
+    border-spacing: 0px 15px; 
+         
+}
+ 
+.stats-content th:first-child {
+     
+    border-top-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
+}
+.stats-content td:last-child {
+     
+    border-bottom-right-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+.stats-content thead.column-names tr th{
+     
+    font-size: 1.6rem;
+    color: #7b7d83;
+    font-weight: 400;
+  
+    
+}
+.stats-content tbody{
+         border-radius:50%; 
+         
+         border: 6px solid orange;
+}
+.stats-content tbody tr{
+ background-color: #2e3241;
+border-radius: 60px;  
+}
+.stats-content tbody tr th,.stats-content tbody tr td{
+    
+    
+   padding: 1px;
+    font-weight: 800;
+    font-size:2rem ;
+  
+    
+}
+#stats-info th,#stats-info td, #stats-info tr{
+      text-align: center;
+}
+ 
+
+/* dark mode */
+
+body.light-mode {
+  background: #ffffff;
+}
+

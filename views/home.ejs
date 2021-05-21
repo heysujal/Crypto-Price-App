@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- bootstrap icons -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <title>Stats!</title>
+</head>
+
+<body>
+  <main class="container">
+    <section id="top-menu">
+      <div class="filter-menu">
+        <!-- logo and text -->
+        <div class="logo-text">
+          <h1><span style="color: #60cdc8">HODLINFO.com</span></h1>
+          <p>
+            <span style="color: dimgrey">Powered By</span>
+            <span style="color: #60cdc8">Finstreet</span>
+          </p>
+        </div>
+
+        <!-- dropdowns-->
+        <div>
+          <!-- first dropdown -->
+          <div class="btn-group filter-dropdown">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="defaultDropdown"
+              data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+              INR
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+              <li><a class="dropdown-item" href="#">option</a></li>
+              <li><a class="dropdown-item" href="#">option</a></li>
+              <li><a class="dropdown-item" href="#">option</a></li>
+            </ul>
+          </div>
+
+          <!-- second dropdown-->
+          <div class="btn-group filter-dropdown">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="defaultDropdown"
+              data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+              BTC
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+              <li><a class="dropdown-item" href="#">option</a></li>
+              <li><a class="dropdown-item" href="#">option</a></li>
+              <li><a class="dropdown-item" href="#">option</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- connect and switch -->
+
+        <div class="connect-switch" style="display: flex">
+          <!-- circle -->
+          <div style="margin: 0 15px; height: fit-content">
+            <div class="outer-circle">
+              <div class="inner-circle">58</div>
+            </div>
+          </div>
+
+          <!-- connect to telegram -->
+
+          <div class="connect-button">
+            <button type="button" class="btn">
+              <i style="color: #60cdc8; background-color: white" class="bi bi-telegram"></i>
+              Connect Telegram
+            </button>
+          </div>
+
+          <!-- switch -->
+          <div class="form-check form-switch" style="margin: 0 5px">
+            <input style="color: #60cdc8; background-color: #2e3241" class="form-check-input change-theme" type="checkbox"
+              id="flexSwitchCheckChecked" checked />
+            <label class="form-check-label" for="flexSwitchCheckChecked">
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- stats -->
+    <section id="stats-info">
+      <div class="stats-content" style="line-height: 3;">
+        <table class="table table-borderless" style="color: white">
+          <thead class="column-names">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Last</th>
+              <th scope="col">Buy/Sell Price</th>
+              <th scope="col">Volume</th>
+              <th scope="col">Base_unit</th>
+            </tr>
+          </thead>
+          <tbody>
+
+
+
+            <% var index=1 ; for (var key in dataArray) { if (index>10) break;
+              if (!dataArray.hasOwnProperty(key)) continue;
+
+
+
+              var obj = dataArray[key]; %>
+              <tr>
+                <th scope="row">
+                  <%= index %>
+                </th>
+                <td>
+                  <%= obj['name'] %>
+                </td>
+                <td>₹ <%= (Math.round(obj['last'])).toLocaleString() %>
+                </td>
+                <td>₹ <%= (Math.round(obj['buy'])).toLocaleString() %> / ₹ <%=
+                      (Math.round(obj['sell'])).toLocaleString() %>
+                </td>
+
+                <td>
+                  <%= obj['volume'] %>
+                </td>
+                <td>
+                  <%= obj['base_unit'] %>
+                </td>
+              </tr>
+
+
+
+              <% index+=1 }%>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+
+
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+    <script>
+
+var checkbox = document.querySelector(".change-theme"); //get the checkbox to a variable
+
+//check storage if dark mode was on or off
+if (sessionStorage.getItem("mode") == "dark") {
+  darkmode();  
+} else {
+  lightmode(); 
+}
+
+//if the checkbox state is changed, run a funtion
+checkbox.addEventListener("change", function() {
+ 
+  if (checkbox.checked) {
+    darkmode();  
+  } else {
+    lightmode();  
+  }
+});
+
+//function for checkbox when checkbox is checked
+function lightmode() {
+  document.body.classList.add("light-mode"); //add a class to the body tag
+  checkbox.checked = false; //set checkbox to be checked state
+  sessionStorage.setItem("mode", "light"); //store a name & value to know that dark mode is on
+}
+
+//function for checkbox when checkbox is not checked
+function darkmode() {
+  document.body.classList.remove("light-mode"); //remove added class from body tag
+  checkbox.checked = true; //set checkbox to be unchecked state
+  sessionStorage.setItem("mode", "dark"); //store a name & value to know that dark mode is off or light mode is on
+}
+
+
+    </script>
+</body>
+
+</html>
