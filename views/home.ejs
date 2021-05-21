@@ -162,10 +162,10 @@
 var checkbox = document.querySelector(".change-theme"); //get the checkbox to a variable
 
 //check storage if dark mode was on or off
-if (sessionStorage.getItem("mode") == "dark") {
-  darkmode();  
+if (sessionStorage.getItem("mode") == "light") {
+ lightmode();
 } else {
-  lightmode(); 
+    darkmode();  
 }
 
 //if the checkbox state is changed, run a funtion
