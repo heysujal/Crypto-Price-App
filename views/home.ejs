@@ -96,16 +96,17 @@
 
     <!-- stats -->
     <section id="stats-info">
-      <div class="stats-content" style="line-height: 3;">
+      <div class="stats-content" style="line-height: 2;">
         <table class="table table-borderless" style="color: white">
           <thead class="column-names">
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
               <th scope="col">Last</th>
-              <th scope="col">Buy/Sell Price</th>
+              <th scope="col">Buy Price</th>
+              <th scope="col">Sell Price</th>
               <th scope="col">Volume</th>
-              <th scope="col">Base_unit</th>
+              <th scope="col">Base unit</th>
             </tr>
           </thead>
           <tbody>
@@ -127,15 +128,15 @@
                 </td>
                 <td>₹ <%= (Math.round(obj['last'])).toLocaleString() %>
                 </td>
-                <td>₹ <%= (Math.round(obj['buy'])).toLocaleString() %> / ₹ <%=
-                      (Math.round(obj['sell'])).toLocaleString() %>
+                <td>₹ <%= (Math.round(obj['buy'])).toLocaleString() %> 
                 </td>
-
+                <td>₹ <%= (Math.round(obj['sell'])).toLocaleString() %>
+                </td>
                 <td>
                   <%= obj['volume'] %>
                 </td>
                 <td>
-                  <%= obj['base_unit'] %>
+                  <%= obj['base_unit'].toUpperCase() %>
                 </td>
               </tr>
 
