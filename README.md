@@ -4,3 +4,5 @@ It uses WazirX API to get the data.
 
 
 Live Link : https://crypto-price.cyclic.app/
+
+https://crypto-price-app.fly.dev/
